@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lily Pad Living — Growth Model</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --dark-plum: #3b1f3a;
+    --mid-plum: #6b3568;
+    --accent-plum: #9b5c96;
+    --phase1: #9b5c96;
+    --phase2: #6b3568;
+    --phase3: #3b1f3a;
+    --light-plum: #f2eaf1;
+    --border: #d4b8d2;
+    --cream: #faf8f4;
+    --row-alt: #f7f0f7;
+    --text: #1a1a18;
+    --muted: #666666;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'DM Sans', sans-serif; background: #f0e8ef; color: var(--text); padding: 20px; }
+  .page { width: 816px; margin: 0 auto; background: white; box-shadow: 0 4px 30px rgba(59,31,58,0.15); padding: 28px 28px 24px; }
+
+  .header { background: var(--dark-plum); border-radius: 6px; padding: 14px 18px; display: flex; align-items: center; gap: 16px; margin-bottom: 14px; }
+  .header-logo { width: 56px; height: 56px; flex-shrink: 0; }
+  .header-title { flex: 1; }
+  .header-title h1 { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 22px; color: white; line-height: 1.1; }
+  .header-title .slogan { font-family: 'Poppins', sans-serif; font-size: 9px; color: #e0c8e0; margin-top: 3px; line-height: 1.4; }
+  .header-right { text-align: right; }
+  .header-right .subtitle { font-family: 'Poppins', sans-serif; font-size: 10px; color: #d4b8d2; line-height: 1.5; }
+  .header-right .confidential { font-family: 'Poppins', sans-serif; font-size: 8px; color: #b898b8; margin-top: 4px; }
+
+  .section-label { font-size: 8.5px; font-weight: 600; color: var(--accent-plum); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px; }
+
+  /* PHASE CARDS */
+  .phases { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 14px; }
+  .phase-card { border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+  .phase-header { padding: 8px 10px; text-align: center; color: white; }
+  .phase-header h3 { font-size: 11px; font-weight: 700; }
+  .phase-header .timeline { font-size: 8px; color: #e0c8e0; margin-top: 2px; }
+  .phase-stats { background: var(--cream); padding: 8px 10px; }
+  .phase-stats table { width: 100%; border-collapse: collapse; font-size: 8px; }
+  .phase-stats td { padding: 1.5px 0; }
+  .phase-stats td:first-child { color: var(--muted); width: 65px; }
+  .phase-stats td:last-child { font-weight: 700; }
+  .phase-bullets { background: var(--cream); padding: 0 10px 8px; border-top: 1px solid var(--border); }
+  .phase-bullets ul { list-style: none; padding: 6px 0 0; }
+  .phase-bullets li { font-size: 8px; line-height: 1.5; color: var(--text); padding: 1px 0; }
+  .phase-bullets li::before { content: "• "; color: var(--accent-plum); }
+
+  /* INCOME PATH */
+  .table-wrap { border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 6px; }
+  table.income { width: 100%; border-collapse: collapse; font-size: 8px; }
+  .income th { background: var(--mid-plum); color: white; font-weight: 700; padding: 5px 7px; text-align: center; border-right: 1px solid rgba(255,255,255,0.2); }
+  .income th:last-child { border-right: none; }
+  .income td { padding: 4px 7px; text-align: center; border-bottom: 1px solid var(--border); border-right: 1px solid var(--border); }
+  .income td:last-child { border-right: none; }
+  .income tr:last-child td { border-bottom: none; }
+  .income tr:nth-child(odd) td { background: white; }
+  .income tr:nth-child(even) td { background: var(--row-alt); }
+
+  /* WHY TABLE */
+  .why-table { width: 100%; border-collapse: collapse; border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 14px; font-size: 8px; }
+  .why-table tr:nth-child(odd)  td { background: white; }
+  .why-table tr:nth-child(even) td { background: var(--row-alt); }
+  .why-table td { padding: 5px 8px; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.5; }
+  .why-table tr:last-child td { border-bottom: none; }
+  .why-table td.lbl { font-weight: 700; color: var(--mid-plum); width: 135px; white-space: nowrap; }
+
+  .note { font-size: 7.5px; color: var(--muted); margin: 5px 0 14px; line-height: 1.5; }
+  .footer { background: var(--light-plum); border: 1px solid var(--border); border-radius: 4px; text-align: center; padding: 7px; font-size: 7.5px; color: var(--muted); }
+
+  @media print { body { background: white; padding: 0; } .page { box-shadow: none; } }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <img class="header-logo" src="LilyPadLogo.png" alt="Lily Pad Living Logo">
+    <div class="header-title">
+      <h1>Lily Pad Living</h1>
+      <div class="slogan">A place to keep your head above water,<br>while you get your feet back on the ground.</div>
+    </div>
+    <div class="header-right">
+      <div class="subtitle">Portfolio Growth Model &amp; Scale Plan<br>75203 Recovery Community Cluster</div>
+      <div class="confidential">Confidential — For Discussion Only</div>
+    </div>
+  </div>
+
+  <div class="section-label">Growth Phases</div>
+  <div class="phases">
+
+    <div class="phase-card">
+      <div class="phase-header" style="background:var(--phase1);">
+        <h3>Phase 1</h3>
+        <div class="timeline">Year 1–2: Launch</div>
+      </div>
+      <div class="phase-stats">
+        <table>
+          <tr><td>Properties</td><td>1–3</td></tr>
+          <tr><td>Residents</td><td>Up to 24</td></tr>
+          <tr><td>Gross/mo</td><td>~$24,600</td></tr>
+          <tr><td>Net/mo</td><td>$1,102–$2,202</td></tr>
+        </table>
+      </div>
+      <div class="phase-bullets">
+        <ul>
+          <li>Acquire and renovate first property</li>
+          <li>Establish LLC and operating agreement</li>
+          <li>Build referral network — Parkland, Metrocare, 24 Hour Club &amp; Homeward Bound</li>
+          <li>Refine intake process and house rules</li>
+          <li>Prove the model, build reputation</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phase-card">
+      <div class="phase-header" style="background:var(--phase2);">
+        <h3>Phase 2</h3>
+        <div class="timeline">Year 2–4: Scale</div>
+      </div>
+      <div class="phase-stats">
+        <table>
+          <tr><td>Properties</td><td>5–10</td></tr>
+          <tr><td>Residents</td><td>Up to 80</td></tr>
+          <tr><td>Gross/mo</td><td>~$82,000</td></tr>
+          <tr><td>Net/mo</td><td>$2,500–$5,000</td></tr>
+        </table>
+      </div>
+      <div class="phase-bullets">
+        <ul>
+          <li>Full-time transition for operating partner</li>
+          <li>Hire house managers per property</li>
+          <li>Cluster all properties within 75203</li>
+          <li>Residents build cross-house community</li>
+          <li>Sponsor neighborhood recovery events</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phase-card">
+      <div class="phase-header" style="background:var(--phase3);">
+        <h3>Phase 3</h3>
+        <div class="timeline">Year 4+: Ecosystem</div>
+      </div>
+      <div class="phase-stats">
+        <table>
+          <tr><td>Properties</td><td>20–30</td></tr>
+          <tr><td>Residents</td><td>Up to 240</td></tr>
+          <tr><td>Gross/mo</td><td>~$246,000</td></tr>
+          <tr><td>Net/mo</td><td>$10,000–$15,000</td></tr>
+        </table>
+      </div>
+      <div class="phase-bullets">
+        <ul>
+          <li>20–30 property cluster in 75203</li>
+          <li>Residents support each other across houses</li>
+          <li>Waiting list demand = pricing power</li>
+          <li>Community events combat social isolation</li>
+          <li>Legacy real estate portfolio built</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Income Path -->
+  <div class="section-label">Income Path Summary</div>
+  <div class="table-wrap">
+    <table class="income">
+      <tr>
+        <th>Phase</th><th>Properties</th><th>Residents</th><th>Est. Gross/mo</th><th>Est. Net/mo</th><th>Milestone</th>
+      </tr>
+      <tr><td>Phase 1</td><td>1–3</td><td>Up to 24</td><td>~$7,100–$24,600</td><td>$1,102–$2,202/property</td><td>Prove the model</td></tr>
+      <tr><td>Phase 2</td><td>5–10</td><td>Up to 80</td><td>~$35,500–$82,000</td><td>$2,500–$5,000 total</td><td>Full-time transition</td></tr>
+      <tr><td>Phase 3</td><td>20–30</td><td>Up to 240</td><td>~$142,000–$246,000</td><td>$10,000–$15,000 total</td><td>Recovery ecosystem</td></tr>
+    </table>
+  </div>
+  <p class="note">Management fee scales down per property as the portfolio grows, improving margins at scale. Figures exclude equity appreciation and principal paydown — both build long-term wealth.</p>
+
+  <!-- Why This Works -->
+  <div class="section-label">Why This Model Works</div>
+  <table class="why-table">
+    <tr>
+      <td class="lbl">Demand is structural</td>
+      <td>Recovery housing in Dallas is critically undersupplied. Parkland, Metrocare, 24 Hour Club, and Homeward Bound generate consistent referral demand that isn't going away.</td>
+    </tr>
+    <tr>
+      <td class="lbl">Location is intentional</td>
+      <td>75203 puts residents within reach of healthcare, mental health services, transit, and employment — removing barriers to recovery and reducing turnover.</td>
+    </tr>
+    <tr>
+      <td class="lbl">Premium positioning</td>
+      <td>Most Dallas sober living is in poor condition and scattered throughout the city. Clean, well-managed homes at accessible rates are extremely attractive to residents and will keep referrals coming so occupancy remains high.</td>
+    </tr>
+    <tr>
+      <td class="lbl">Community by design</td>
+      <td>Concentrating homes in one zip code turns a portfolio into a recovery ecosystem — residents support each other, reducing management burden and improving outcomes.</td>
+    </tr>
+    <tr>
+      <td class="lbl">Low ongoing costs</td>
+      <td>Xeriscape yards eliminate irrigation and reduce landscaping to one annual cleanup. No lawn. No mowing. Designed to stay lean from day one.</td>
+    </tr>
+    <tr>
+      <td class="lbl">Conservative underwriting</td>
+      <td>Cash flow positive at 7 residents. Full occupancy at 8 produces a strong monthly surplus, with equity building through principal paydown regardless of occupancy.</td>
+    </tr>
+    <tr>
+      <td class="lbl">Scales efficiently</td>
+      <td>Management fee decreases per property as the portfolio grows — the more houses added, the leaner the operation and the stronger the returns.</td>
+    </tr>
+  </table>
+
+  <div class="footer">Lily Pad Living • Dallas, TX 75203 • Confidential — For Discussion Only</div>
+
+</div>
+</body>
+</html>

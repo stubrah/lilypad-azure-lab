@@ -1,0 +1,10 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "SQL_SERVER": "your-server.database.windows.net",
+    "SQL_DATABASE": "lilypadlabdb",
+    "LAB_MODE": "true"
+  }
+}

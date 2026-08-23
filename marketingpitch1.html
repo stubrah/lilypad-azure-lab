@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lily Pad Living — Investor Pitch</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --dark-plum: #3b1f3a;
+    --mid-plum: #6b3568;
+    --accent-plum: #9b5c96;
+    --light-plum: #f2eaf1;
+    --border: #d4b8d2;
+    --cream: #faf8f4;
+    --row-alt: #f7f0f7;
+    --text: #1a1a18;
+    --muted: #666666;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #f0e8ef;
+    color: var(--text);
+    padding: 20px;
+  }
+
+  .page {
+    width: 816px;
+    margin: 0 auto 40px;
+    background: white;
+    box-shadow: 0 4px 30px rgba(59,31,58,0.15);
+    padding: 28px 28px 24px;
+  }
+
+  /* HEADER */
+  .header {
+    background: var(--mid-plum);
+    border-radius: 6px;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 14px;
+  }
+  .header-logo {
+    width: 56px;
+    height: 56px;
+    flex-shrink: 0;
+  }
+  .header-title {
+    flex: 1;
+  }
+  .header-title h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    color: white;
+    line-height: 1.1;
+  }
+  .header-title .slogan {
+    font-family: 'Poppins', sans-serif;
+    font-size: 9px;
+    color: #e0c8e0;
+    margin-top: 3px;
+    line-height: 1.4;
+  }
+  .header-right {
+    text-align: right;
+  }
+  .header-right .subtitle {
+    font-family: 'Poppins', sans-serif;
+    font-size: 10px;
+    color: #d4b8d2;
+    line-height: 1.5;
+  }
+  .header-right .confidential {
+    font-family: 'Poppins', sans-serif;
+    font-size: 8px;
+    color: #b898b8;
+    margin-top: 4px;
+  }
+
+  /* SECTION LABEL */
+  .section-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 8.5px;
+    font-weight: 600;
+    color: var(--accent-plum);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  /* TWO COLUMN */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+  .cell-box {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 12px;
+  }
+  .cell-box p {
+    font-size: 8.5px;
+    line-height: 1.5;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+  .cell-box p:last-child { margin-bottom: 0; }
+  .cell-box p b { color: var(--mid-plum); }
+
+  /* FINANCIAL TABLES */
+  .fin-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .fin-left { display: flex; flex-direction: column; gap: 6px; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 8px;
+  }
+  table tr td {
+    padding: 3px 6px;
+    border-bottom: 1px solid var(--border);
+  }
+  table tr:nth-child(even) { background: var(--row-alt); }
+  table tr:nth-child(odd)  { background: white; }
+  table tr td:last-child   { font-weight: 600; text-align: right; }
+  table tr.total td {
+    background: var(--mid-plum) !important;
+    color: white;
+    font-weight: 700;
+    border-bottom: none;
+  }
+  table tr.total td:last-child { text-align: right; }
+  .table-wrap { border: 1px solid var(--border); border-radius: 3px; overflow: hidden; }
+
+  /* REVENUE TABLE */
+  .rev-table th {
+    background: var(--light-plum);
+    font-weight: 600;
+    font-size: 7.5px;
+    padding: 4px 6px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+  }
+  .rev-table th:first-child { text-align: left; }
+  .rev-table td { text-align: center; }
+  .rev-table td:first-child { text-align: left; }
+  .rev-table tr.total td { text-align: center; }
+  .rev-table tr.total td:first-child { text-align: left; }
+
+  /* NOTE */
+  .note {
+    font-size: 7.5px;
+    color: var(--muted);
+    margin: 5px 0 10px;
+    line-height: 1.4;
+  }
+
+  /* FOOTER */
+  .footer {
+    background: var(--light-plum);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    padding: 7px 12px;
+    font-size: 7.5px;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+
+  /* PRINT */
+  @media print {
+    body { background: white; padding: 0; }
+    .page { box-shadow: none; margin: 0; width: 100%; page-break-after: always; }
+    .page:last-child { page-break-after: auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════ PAGE 1 -->
+<div class="page">
+
+  <div class="header">
+    <img class="header-logo" src="LilyPadLogo.png" alt="Lily Pad Living Logo">
+    <div class="header-title">
+      <h1>Lily Pad Living</h1>
+      <div class="slogan">A place to keep your head above water,<br>while you get your feet back on the ground.</div>
+    </div>
+    <div class="header-right">
+      <div class="subtitle">Premium Sober Living • Dallas, TX 75203</div>
+      <div class="confidential">Confidential — For Discussion Only</div>
+    </div>
+  </div>
+
+  <!-- Opportunity + Why 75203 -->
+  <div class="two-col">
+    <div class="cell-box">
+      <div class="section-label">The Opportunity</div>
+      <p>Most sober living homes in Dallas are overcrowded, poorly maintained, and placed with no strategic thought about resident outcomes. Lily Pad Living is built on the opposite premise: premium-condition homes, intentionally located, professionally managed.</p>
+      <p>Recovery housing is one of the most undersupplied resources in Dallas — providing structured, supportive housing for individuals rebuilding their lives, while generating strong, predictable returns for investors.</p>
+      <p>The long-term vision is a concentrated cluster of 20–30 Lily Pad properties within the same zip code — allowing residents to form genuine community, strengthening accountability and recovery outcomes, while making operations significantly more efficient.</p>
+    </div>
+    <div class="cell-box">
+      <div class="section-label">Why 75203</div>
+      <p><b>Parkland Health</b> — One of the largest safety-net hospitals in the US. Trauma care, behavioral health, and detox referrals feed directly into recovery housing demand.</p>
+      <p><b>Metrocare Services</b> — Dallas's primary community mental health authority. Outpatient therapy, psychiatric care, and case management — all within easy reach.</p>
+      <p><b>DART Transit Access</b> — With a transit pass and a scooter or bike, virtually all of Dallas is accessible: jobs, groceries, support groups, courts. No car required.</p>
+      <p><b>Community by Design</b> — Concentrating properties in one zip code means residents build real relationships and support each other's recovery — turning a portfolio into a recovery ecosystem.</p>
+    </div>
+  </div>
+
+  <!-- Financial Overview -->
+  <div class="section-label">Financial Overview — 1st Floor Addition (Ideal)</div>
+  <div class="fin-grid">
+    <div class="fin-left">
+      <!-- Acquisition -->
+      <div class="table-wrap">
+        <table>
+          <tr><td>Purchase price</td><td>~$550,000</td></tr>
+          <tr><td>Renovation (2bd/2ba ground floor addition)</td><td>~$158,000</td></tr>
+          <tr><td>Xeriscape — native drought-tolerant yards</td><td>~$24,000</td></tr>
+          <tr><td>Total project cost</td><td>~$732,000</td></tr>
+          <tr><td>Down payment</td><td>~$175,000</td></tr>
+          <tr><td>Closing costs &amp; reserves</td><td>~$19,000</td></tr>
+          <tr class="total"><td>Total investor capital needed</td><td>~$194,000</td></tr>
+        </table>
+      </div>
+      <!-- Monthly -->
+      <div class="table-wrap">
+        <table>
+          <tr><td>P&amp;I (30yr @ ~6.4%)</td><td>~$3,490</td></tr>
+          <tr><td>Property taxes</td><td>~$1,146</td></tr>
+          <tr><td>Homeowners insurance</td><td>~$522</td></tr>
+          <tr><td>Electric</td><td>~$250</td></tr>
+          <tr><td>Water &amp; sewer</td><td>~$60</td></tr>
+          <tr><td>Internet</td><td>~$80</td></tr>
+          <tr><td>Landscaping (avg/mo)</td><td>~$50</td></tr>
+          <tr><td>Management fee</td><td>~$400</td></tr>
+          <tr class="total"><td>Total monthly outlay</td><td>~$5,998</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Revenue Scenarios -->
+    <div class="table-wrap">
+      <table class="rev-table">
+        <tr>
+          <th></th>
+          <th>Conservative<br>(7 residents)</th>
+          <th>Ideal<br>(8 residents)</th>
+        </tr>
+        <tr><td>Doubles (6 people @ $250/wk)</td><td>$6,000</td><td>$6,000</td></tr>
+        <tr><td>Singles (1 or 2 @ $275/wk)</td><td>$1,100</td><td>$2,200</td></tr>
+        <tr><td>Monthly gross</td><td>~$7,100</td><td>~$8,200</td></tr>
+        <tr><td>Monthly outlay</td><td>~$5,998</td><td>~$5,998</td></tr>
+        <tr class="total"><td>Monthly surplus</td><td>~$1,102</td><td>~$2,202</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <p class="note">Cash flow positive at 7 residents. Full occupancy at 8 produces a strong monthly surplus with equity building through principal paydown regardless of occupancy.</p>
+
+  <div class="footer">
+    <span>Dallas, TX 75203 • Stuart Silver • 214-906-8660 • stuart.silver@outlook.com</span>
+    <span>Cash flow positive at 7 residents • Strong surplus at 8 • Equity builds with every payment</span>
+  </div>
+
+</div><!-- end page 1 -->
+</body>
+</html>

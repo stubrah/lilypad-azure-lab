@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lily Pad Living — Partnership & Vision</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --dark-plum: #3b1f3a;
+    --mid-plum: #6b3568;
+    --accent-plum: #9b5c96;
+    --light-plum: #f2eaf1;
+    --border: #d4b8d2;
+    --cream: #faf8f4;
+    --row-alt: #f7f0f7;
+    --text: #1a1a18;
+    --muted: #666666;
+    --white: #ffffff;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'DM Sans', sans-serif; background: #f0e8ef; color: var(--text); padding: 20px; }
+  .page { width: 816px; margin: 0 auto 40px; background: white; box-shadow: 0 4px 30px rgba(59,31,58,0.15); padding: 28px 28px 24px; }
+
+  .header { background: var(--mid-plum); border-radius: 6px; padding: 14px 18px; display: flex; align-items: center; gap: 16px; margin-bottom: 14px; }
+  .header-logo { width: 56px; height: 56px; flex-shrink: 0; }
+  .header-title { flex: 1; }
+  .header-title h1 { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 22px; color: white; line-height: 1.1; }
+  .header-title .slogan { font-family: 'Poppins', sans-serif; font-size: 9px; color: #e0c8e0; margin-top: 3px; line-height: 1.4; }
+  .header-right { text-align: right; }
+  .header-right .subtitle { font-family: 'Poppins', sans-serif; font-size: 10px; color: #d4b8d2; line-height: 1.5; }
+  .header-right .confidential { font-family: 'Poppins', sans-serif; font-size: 8px; color: #b898b8; margin-top: 4px; }
+
+  .section-label { font-family: 'DM Sans', sans-serif; font-size: 8.5px; font-weight: 600; color: var(--accent-plum); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px; }
+
+  /* PARTNERSHIP */
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 14px; }
+  .col-header { background: var(--light-plum); padding: 7px 10px; font-size: 8.5px; font-weight: 600; border-right: 1px solid var(--border); }
+  .col-header:last-child { border-right: none; }
+  .col-body { background: var(--cream); padding: 8px 10px; font-size: 8px; line-height: 1.5; border-right: 1px solid var(--border); }
+  .col-body:last-child { border-right: none; }
+
+  /* PHASES */
+  .phases { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 14px; }
+  .phase-header { background: var(--mid-plum); color: white; font-weight: 700; font-size: 8.5px; text-align: center; padding: 7px; border-right: 1px solid rgba(255,255,255,0.2); }
+  .phase-header:last-child { border-right: none; }
+  .phase-body { background: var(--cream); text-align: center; font-size: 8px; line-height: 1.6; padding: 8px; border-right: 1px solid var(--border); color: var(--accent-plum); font-weight: 500; }
+  .phase-body:nth-child(even) { background: var(--light-plum); }
+  .phase-body:last-child { border-right: none; }
+
+  /* WHY TABLE */
+  .why-table { width: 100%; border-collapse: collapse; border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 14px; font-size: 8px; }
+  .why-table tr:nth-child(odd)  td { background: white; }
+  .why-table tr:nth-child(even) td { background: var(--row-alt); }
+  .why-table td { padding: 5px 8px; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.5; }
+  .why-table tr:last-child td { border-bottom: none; }
+  .why-table td.lbl { font-weight: 700; color: var(--mid-plum); width: 140px; white-space: nowrap; }
+
+  /* FOOTER */
+  .footer { background: var(--light-plum); border: 1px solid var(--border); border-radius: 4px; display: flex; justify-content: space-between; padding: 7px 12px; font-size: 7.5px; color: var(--muted); margin-bottom: 14px; }
+
+  /* ADDENDUM */
+  .divider { border: none; border-top: 1px solid var(--border); margin: 4px 0 10px; }
+  .addendum-note { font-size: 8px; color: var(--muted); line-height: 1.5; margin-bottom: 8px; }
+
+  table.add-table { width: 100%; border-collapse: collapse; font-size: 8px; }
+  .add-table th { background: #e8d8e8; font-weight: 700; padding: 4px 7px; border: 1px solid var(--border); text-align: left; }
+  .add-table th:nth-child(2) { background: var(--light-plum); }
+  .add-table td { padding: 3px 7px; border: 1px solid var(--border); }
+  .add-table tr:nth-child(even) td { background: var(--row-alt); }
+  .add-table tr:nth-child(odd)  td { background: white; }
+  .add-table td:nth-child(2) { background: var(--light-plum) !important; font-weight: 600; }
+  .add-table td:first-child { font-weight: 700; color: var(--muted); }
+
+  @media print {
+    body { background: white; padding: 0; }
+    .page { box-shadow: none; margin: 0; width: 100%; page-break-after: always; }
+    .page:last-child { page-break-after: auto; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <div class="header">
+    <img class="header-logo" src="LilyPadLogo.png" alt="Lily Pad Living Logo">
+    <div class="header-title">
+      <h1>Lily Pad Living</h1>
+      <div class="slogan">A place to keep your head above water,<br>while you get your feet back on the ground.</div>
+    </div>
+    <div class="header-right">
+      <div class="subtitle">Partnership Structure &amp; Long-Term Vision</div>
+      <div class="confidential">Confidential — For Discussion Only</div>
+    </div>
+  </div>
+
+  <!-- Partnership Structure -->
+  <div class="section-label">Partnership Structure</div>
+  <div class="three-col" style="margin-bottom:14px;">
+    <div class="col-header">Investor Role</div>
+    <div class="col-header">Operating Partner Role</div>
+    <div class="col-header">Legal Entity</div>
+    <div class="col-body">Provides down payment and closing capital (~$194k). Receives preferred return (6–8% annually) plus agreed equity share. Primary beneficiary of property appreciation.</div>
+    <div class="col-body">Manages all day-to-day operations, resident intake, house management, compliance, and community relationships. Receives management fee per property — scales down as the portfolio grows, keeping the model lean at scale.</div>
+    <div class="col-body">Texas LLC with a formal Operating Agreement defining ownership percentages, decision rights, exit provisions, and equity transfer terms. Both partners protected.</div>
+  </div>
+
+  <!-- Long Term Vision -->
+  <div class="section-label">Long-Term Vision</div>
+  <div class="phases">
+    <div class="phase-header">Phase 1: Launch</div>
+    <div class="phase-header">Phase 2: Scale</div>
+    <div class="phase-header">Phase 3: Ecosystem</div>
+    <div class="phase-body">1–3 properties<br>$1,102–$2,202/mo net<br>Establish operations<br>and reputation</div>
+    <div class="phase-body">5–10 properties<br>$2,500–$5,000/mo net<br>Full-time management<br>Transition point</div>
+    <div class="phase-body">20–30 properties<br>$10,000–$15,000/mo net<br>Recovery community<br>cluster in 75203</div>
+  </div>
+
+  <!-- Why This Works -->
+  <div class="section-label">Why This Works</div>
+  <table class="why-table">
+    <tr>
+      <td class="lbl">Demand is structural</td>
+      <td>Recovery housing in Dallas is critically undersupplied. Parkland, Metrocare, 24 Hour Club, and Homeward Bound generate consistent referral demand that isn't going away.</td>
+    </tr>
+    <tr>
+      <td class="lbl">Location is intentional</td>
+      <td>75203 puts residents within reach of healthcare, mental health services, transit, and employment — removing barriers to recovery and reducing turnover.</td>
+    </tr>
+    <tr>
+      <td class="lbl">Premium positioning</td>
+      <td>Most Dallas sober living is in poor condition and scattered throughout the city. Clean, well-managed homes at accessible rates are extremely attractive to residents and will keep referrals coming so occupancy remains high.</td>
+    </tr>
+    <tr>
+      <td class="lbl">Community by design</td>
+      <td>Concentrating homes in one zip code turns a portfolio into a recovery ecosystem — residents support each other, reducing management burden and improving outcomes.</td>
+    </tr>
+    <tr>
+      <td class="lbl">Low ongoing costs</td>
+      <td>Xeriscape yards eliminate irrigation and reduce landscaping to a single annual cleanup. No lawn. No mowing. Designed to stay lean.</td>
+    </tr>
+    <tr>
+      <td class="lbl">Conservative underwriting</td>
+      <td>Cash flow positive at 7 residents. Full occupancy at 8 produces a strong monthly surplus, with equity building through principal paydown regardless of occupancy.</td>
+    </tr>
+  </table>
+
+  <div class="footer">
+    <span>Dallas, TX 75203 • Stuart Silver • 214-906-8660 • stuart.silver@outlook.com</span>
+    <span>Cash flow positive at 7 residents • Strong surplus at 8 • Equity builds with every payment</span>
+  </div>
+
+  <!-- Addendum -->
+  <hr class="divider">
+  <div class="section-label">Addendum: 2nd Story Addition (Alternative Where Lot Size Prevents Ground Expansion)</div>
+  <p class="addendum-note">When a property's lot size or setback requirements prevent a ground-floor addition, a full 2nd story is the recommended alternative. Adds square footage without reducing yard space and typically increases resale value, but carries higher upfront costs and a longer construction timeline (6–12 months vs. 3–5 months).</p>
+
+  <table class="add-table">
+    <tr>
+      <th></th>
+      <th>1st Floor Addition (Ideal)</th>
+      <th>2nd Story Addition (Alternative)</th>
+    </tr>
+    <tr><td>Renovation cost</td><td>~$158,000</td><td>~$315,000</td></tr>
+    <tr><td>Xeriscape</td><td>~$24,000</td><td>~$24,000</td></tr>
+    <tr><td>Total project cost</td><td>~$732,000</td><td>~$889,000</td></tr>
+    <tr><td>Down payment</td><td>~$175,000</td><td>~$175,000</td></tr>
+    <tr><td>Investor capital needed</td><td>~$194,000</td><td>~$214,000</td></tr>
+    <tr><td>Monthly P&amp;I</td><td>~$3,490</td><td>~$4,300</td></tr>
+    <tr><td>Total monthly outlay</td><td>~$5,998</td><td>~$6,808</td></tr>
+    <tr><td>Surplus — 7 residents</td><td>~$1,102</td><td>~($708)</td></tr>
+    <tr><td>Surplus — 8 residents</td><td>~$2,202</td><td>~$1,392</td></tr>
+    <tr><td>Construction timeline</td><td>3–5 months</td><td>6–12 months</td></tr>
+  </table>
+
+</div>
+</body>
+</html>

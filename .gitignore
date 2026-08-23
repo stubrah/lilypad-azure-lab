@@ -1,0 +1,5 @@
+.DS_Store
+api/local.settings.json
+api/node_modules/
+api/*.zip
+Thumbs.db

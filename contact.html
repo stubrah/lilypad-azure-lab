@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact – Lily Pad Living</title>
+  <meta name="description" content="Get in touch with Lily Pad Living — apply to be a resident, join the interest list, or reach out about supporting the project." />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="logo" href="index.html">Lily Pad Living</a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="about.html">About</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="houses.html">Houses</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <p class="eyebrow">Get in touch</p>
+        <h1>We'd love to hear from you.</h1>
+        <p class="hero-text">
+          Whether you're looking for a place to land, want to support what we're building,
+          or just want to stay in the loop — reach out.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="contact-grid">
+
+          <!-- Resident Application -->
+          <div class="contact-block">
+            <h2>Apply to Be a Resident</h2>
+            <p>Looking for a spot? Fill this out and we'll get back to you within a few days.</p>
+            <div class="lab-notice" role="note">
+              <strong>Azure training environment:</strong> submit fake data only. Do not enter real
+              resident, health, financial, recovery, or identifying information.
+            </div>
+            <form class="contact-form" id="resident-application" name="resident-application">
+              <div class="form-group">
+                <label for="res-name">Full Name</label>
+                <input type="text" id="res-name" name="name" placeholder="Test Resident" maxlength="100" required />
+              </div>
+              <div class="form-group">
+                <label for="res-email">Email</label>
+                <input type="email" id="res-email" name="email" placeholder="resident@example.com" maxlength="254" required />
+              </div>
+              <div class="form-group">
+                <label for="res-phone">Phone (optional)</label>
+                <input type="tel" id="res-phone" name="phone" placeholder="(214) 555-0100" maxlength="30" />
+              </div>
+              <div class="form-group">
+                <label for="res-situation">Tell us a little about your situation</label>
+                <textarea id="res-situation" name="situation" rows="4" maxlength="1000" placeholder="Fake lab notes only"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="res-timeline">When do you need housing?</label>
+                <select id="res-timeline" name="timeline">
+                  <option value="">Select one</option>
+                  <option value="asap">As soon as possible</option>
+                  <option value="30days">Within 30 days</option>
+                  <option value="60days">Within 60 days</option>
+                  <option value="exploring">Just exploring for now</option>
+                </select>
+              </div>
+              <button class="button" type="submit">Submit Application</button>
+              <p class="form-status" id="resident-form-status" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+
+          <!-- Right column: Interest List + Supporter -->
+          <div class="contact-block">
+
+            <!-- Interest List -->
+            <div class="contact-sub-block">
+              <h2>Join the Interest List</h2>
+              <p>Not ready to apply yet, or just want to stay updated as we open houses? Drop your info here.</p>
+              <form class="contact-form" name="interest-list" netlify>
+                <div class="form-group">
+                  <label for="int-name">Name</label>
+                  <input type="text" id="int-name" name="name" placeholder="Your name" required />
+                </div>
+                <div class="form-group">
+                  <label for="int-email">Email</label>
+                  <input type="email" id="int-email" name="email" placeholder="you@email.com" required />
+                </div>
+                <button class="button button-secondary" type="submit">Join the List</button>
+              </form>
+            </div>
+
+            <!-- Supporter / Investor -->
+            <div class="contact-sub-block">
+              <h2>Support or Invest</h2>
+              <p>
+                Interested in supporting Lily Pad Living — as a donor, property partner,
+                or community ally? We'd love to talk.
+              </p>
+              <form class="contact-form" name="supporter" netlify>
+                <div class="form-group">
+                  <label for="sup-name">Name</label>
+                  <input type="text" id="sup-name" name="name" placeholder="Your name" required />
+                </div>
+                <div class="form-group">
+                  <label for="sup-email">Email</label>
+                  <input type="email" id="sup-email" name="email" placeholder="you@email.com" required />
+                </div>
+                <div class="form-group">
+                  <label for="sup-interest">How are you interested in helping?</label>
+                  <select id="sup-interest" name="interest">
+                    <option value="">Select one</option>
+                    <option value="donor">Financial donation</option>
+                    <option value="property">Property partnership</option>
+                    <option value="volunteer">Volunteering / mentorship</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="sup-message">Anything else you want us to know?</label>
+                  <textarea id="sup-message" name="message" rows="3" placeholder="Optional"></textarea>
+                </div>
+                <button class="button button-secondary" type="submit">Send Message</button>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 Lily Pad Living</p>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
